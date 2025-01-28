@@ -52,34 +52,72 @@ const subject = document.getElementById("subject");
 const message = document.getElementById("message");
 
 
-function sendEmail(){
+// function sendEmail(){
+//     const bodyMessage = `Full Name: ${fullName.value}<br> Email: ${email.value}
+//     <br> Phone Number: ${phone.value}<br> Message: ${message.value}`;
+
+//     Email.send({
+//         // SecureToken: "c63f35e8-b886-4a3c-9c62-27e0a38b1b5f",
+//         // To : 'karakusataberkay@gmail.com',
+//         // From : "karakusataberkay@gmail.com",
+//         SecureToken: "a000caeb-6db7-414f-bb01-b139f5c93bd6",
+//         To : 'karakusataberkay@gmail.com',
+//         From : "karakusataberkay@gmail.com",
+        
+//         Subject : subject.value,
+//         Body : bodyMessage
+//     }).then(
+//         message => {
+//             if(message == "OK"){
+//                 Swal.fire({
+//                     title: "Your email was sent successfully!",
+//                     text: "I will get back to you as soon as possible!",
+//                     icon: "success"
+//                   });
+//             }
+//         }
+//     );
+// };
+
+// form.addEventListener("submit",(e) => {
+//     e.preventDefault();
+
+//     sendEmail();
+// });
+
+function sendEmail() {
     const bodyMessage = `Full Name: ${fullName.value}<br> Email: ${email.value}
     <br> Phone Number: ${phone.value}<br> Message: ${message.value}`;
 
     Email.send({
-        SecureToken: "c63f35e8-b886-4a3c-9c62-27e0a38b1b5f",
-        To : 'karakusataberkay@gmail.com',
-        From : "karakusataberkay@gmail.com",
-        Subject : subject.value,
-        Body : bodyMessage
-    }).then(
-        message => {
-            if(message == "OK"){
-                Swal.fire({
-                    title: "Mailiniz Başarıyla Yollandı!",
-                    text: "En kısa zamanda dönüş yapacağım!",
-                    icon: "success"
-                  });
-            }
+        SecureToken: "a000caeb-6db7-414f-bb01-b139f5c93bd6", // Gmail SMTP server
+        To: "soloyede708@gmail.com", // Recipient's email address
+        From: "soloyede708@gmail.com",
+        Subject: subject.value || "No Subject", // Subject from the form or default
+        Body: bodyMessage,
+    }).then(function (message) {
+        console.log(message,   " jfjfjjfjf")
+        if (message == "OK") {
+            Swal.fire({
+                title: "Mail Sent Successfully!",
+                text: "I'll get back to you soon!",
+                icon: "success",
+            });
+        } else {
+            Swal.fire({
+                title: "Failed to Send Mail!",
+                text: "Please try again later.",
+                icon: "error",
+            });
         }
-    );
-};
+    });
+}
 
-form.addEventListener("submit",(e) => {
+form.addEventListener("submit", (e) => {
     e.preventDefault();
-
-    sendEmail();
+    sendEmail(); // Call the sendEmail function
 });
+
 
 
 document.getElementById('downloadCv').addEventListener('click', function(event) {
