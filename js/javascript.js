@@ -96,7 +96,6 @@ function sendEmail() {
         Subject: subject.value || "No Subject", // Subject from the form or default
         Body: bodyMessage,
     }).then(function (message) {
-        console.log(message,   " jfjfjjfjf")
         if (message == "OK") {
             Swal.fire({
                 title: "Mail Sent Successfully!",
