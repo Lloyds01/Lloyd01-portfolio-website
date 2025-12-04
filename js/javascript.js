@@ -122,13 +122,13 @@ form.addEventListener("submit", (e) => {
 document.getElementById('downloadCv').addEventListener('click', function(event) {
     event.preventDefault(); 
     if (confirm('Do you want to download the CV?')) {
-        window.location.href = 'images/OLOYEDE-S.pdf'; 
+        window.location.href = 'images/-MY-RESUME--.pdf'; 
     }
 });
 
 document.getElementById('downloadCv2').addEventListener('click', function(event) {
     event.preventDefault(); 
     if (confirm('Do you want to download the CV?')) {
-        window.location.href = 'images/OLOYEDE-S.pdf'; 
+        window.location.href = 'images/-MY-RESUME--.pdf'; 
     }
 });
